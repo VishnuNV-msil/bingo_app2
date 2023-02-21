@@ -65,44 +65,43 @@ class _BingoTableState extends State<BingoTable> {
           )),
           BlocBuilder<BingoBloc, BingoState>(
             builder: (context, state) {
-              return Flexible(
-                child: Container(
-                  alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.width - 40,
-                  width: MediaQuery.of(context).size.width - 10,
-                  decoration: BoxDecoration(
-                    color: Colors.pink,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: CustomPaint(
-                        foregroundPainter: GridLines(
-                            Paint()
-                              ..color = Colors.black
-                              ..strokeWidth = 6.0,
-                            state is BingoAddNumberState
-                                ? state.bingoList
-                                : []),
-                        child: GridView.builder(
-                            itemCount: 25,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 5, childAspectRatio: 1),
-                            itemBuilder: (BuildContext context, int index) {
-                              return ButtonWidget(
-                                buttonTapped: () {
-                                  bingoBloc.add(BingoAddNumberEvent(index));
-                                },
-                                buttonText: state is BingoAddNumberState
-                                    ? state.userIndexList[index].toString()
-                                    : '',
-                                textColor: Colors.black,
-                                index: index,
-                              );
-                            }),
-                      )),
+              return Container(
+                alignment: Alignment.center,
+                height: MediaQuery.of(context).size.width - 40,
+                width: MediaQuery.of(context).size.width - 10,
+                decoration: BoxDecoration(
+                  color: Colors.pink,
+                  borderRadius: BorderRadius.circular(20),
                 ),
+                child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: CustomPaint(
+                      foregroundPainter: GridLines(
+                          Paint()
+                            ..color = Colors.black
+                            ..strokeWidth = 6.0,
+                          state is BingoAddNumberState
+                              ? state.bingoList
+                              : []),
+                      child: GridView.builder(
+                          itemCount: 25,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 5, childAspectRatio: 1),
+                          itemBuilder: (BuildContext context, int index) {
+                            return ButtonWidget(
+                              buttonTapped: () {
+                                bingoBloc.add(BingoAddNumberEvent(index));
+                              },
+                              buttonText: state is BingoAddNumberState
+                                  ? state.userIndexList[index].toString()
+                                  : '',
+                              textColor: Colors.black,
+                              index: index,
+                            );
+                          }),
+                    ),
+                  ),
               );
             },
           ),
@@ -111,7 +110,8 @@ class _BingoTableState extends State<BingoTable> {
               child: const Icon(Icons.refresh),
               onPressed: () {
                 bingoBloc.add(BingoRefreshEvent());
-              }),
+              },
+            ),
         ],
       ),
     );
