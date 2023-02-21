@@ -8,3 +8,7 @@ class BingoAddNumberState extends BingoState {
    List bingoList;
   BingoAddNumberState(this.userIndexList,this.bingoList);
 }
+
+class BingoRefreshState extends BingoState {
+  BingoRefreshState();
+}

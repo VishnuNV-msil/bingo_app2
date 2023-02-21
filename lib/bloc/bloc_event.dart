@@ -8,3 +8,7 @@ class BingoAddNumberEvent extends BingoEvent {
   BingoAddNumberEvent(this.userIndexValue);
 }
 
+class BingoRefreshEvent extends BingoEvent {
+  BingoRefreshEvent();
+}
+

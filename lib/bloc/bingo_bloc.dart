@@ -2,9 +2,10 @@ import 'bloc_event.dart';
 import 'bloc_state.dart';
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+
 class BingoBloc extends Bloc<BingoEvent, BingoState> {
   List userSelectedList = [];
-  final List numbersList = List.generate(25, (int index) => '');
+  List numbersList = List.generate(25, (int index) => '');
   int number = 0;
   List crossedList = [];
   final List dLeft = [4, 8, 12, 16, 20];
@@ -19,14 +20,21 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
   final List r3 = [10, 11, 12, 13, 14];
   final List r4 = [15, 16, 17, 18, 19];
   final List r5 = [20, 21, 22, 23, 24];
-  final List bingoList = [];
+   List bingoList = [];
 
-
-@override
+  @override
   BingoBloc() : super(BingoInitialState()) {
     on<BingoAddNumberEvent>((event, emit) {
       addToUserSelectedList(event.userIndexValue);
       emit(BingoAddNumberState(numbersList, bingoList));
+    });
+    on<BingoRefreshEvent>((event, emit) {
+      number = 0;
+      numbersList = List.generate(25, (int index) => '');
+      userSelectedList = [];
+      bingoList = [];
+      crossedList = [];
+      emit(BingoRefreshState());
     });
   }
   void addToUserSelectedList(int index) {
@@ -112,4 +120,3 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
     }
   }
 }
-

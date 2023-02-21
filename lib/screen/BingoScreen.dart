@@ -23,7 +23,8 @@ class _BingoScreenState extends State<BingoScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text(Strings.appBarTitle,
+          title: const Text(
+            Strings.appBarTitle,
             style: TextStyle(
                 fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black),
           ),
@@ -87,18 +88,14 @@ class _BingoTableState extends State<BingoTable> {
                             itemCount: 25,
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 5,
-                                    childAspectRatio: 1),
-                            itemBuilder:
-                                (BuildContext context, int index) {
+                                    crossAxisCount: 5, childAspectRatio: 1),
+                            itemBuilder: (BuildContext context, int index) {
                               return ButtonWidget(
                                 buttonTapped: () {
-                                  bingoBloc
-                            .add(BingoAddNumberEvent(index));
+                                  bingoBloc.add(BingoAddNumberEvent(index));
                                 },
                                 buttonText: state is BingoAddNumberState
-                                    ? state.userIndexList[index]
-                                        .toString()
+                                    ? state.userIndexList[index].toString()
                                     : '',
                                 textColor: Colors.black,
                                 index: index,
@@ -108,7 +105,13 @@ class _BingoTableState extends State<BingoTable> {
                 ),
               );
             },
-          )
+          ),
+          FloatingActionButton(
+              heroTag: 'btn2',
+              child: const Icon(Icons.refresh),
+              onPressed: () {
+                bingoBloc.add(BingoRefreshEvent());
+              }),
         ],
       ),
     );
