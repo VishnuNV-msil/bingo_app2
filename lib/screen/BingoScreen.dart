@@ -67,8 +67,8 @@ class _BingoTableState extends State<BingoTable> {
             builder: (context, state) {
               return Container(
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.width-20,
-                width: MediaQuery.of(context).size.width-20,
+                height: MediaQuery.of(context).size.width-30,
+                width: MediaQuery.of(context).size.width-30,
                 decoration: BoxDecoration(
                   color: Colors.pink,
                   borderRadius: BorderRadius.circular(20),
@@ -87,7 +87,7 @@ class _BingoTableState extends State<BingoTable> {
                           itemCount: 25,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 5, childAspectRatio: 1),
+                                  crossAxisCount: 5,),
                           itemBuilder: (BuildContext context, int index) {
                             return ButtonWidget(
                               buttonTapped: () {
