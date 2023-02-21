@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Strings/strings.dart';
 
 
 class GridLines extends CustomPainter {
@@ -14,55 +15,55 @@ class GridLines extends CustomPainter {
     double offsetX;
     double offsetY;
 
-    if (bingoList.contains('c1')) {
+    if (bingoList.contains(Strings.c1Str)) {
       offsetX = cellWidth / 2;
       drawLineVerticalLine(canvas, offsetX, lineLength);
     }
-    if (bingoList.contains('c2')) {
+    if (bingoList.contains(Strings.c2Str)) {
       offsetX = cellWidth * 1.5;
       drawLineVerticalLine(canvas, offsetX, lineLength);
     }
-    if (bingoList.contains('c3')) {
+    if (bingoList.contains(Strings.c3Str)) {
       offsetX = cellWidth * 2.5;
       drawLineVerticalLine(canvas, offsetX, lineLength);
     }
-    if (bingoList.contains('c4')) {
+    if (bingoList.contains(Strings.c4Str)) {
       offsetX = cellWidth * 3.5;
       drawLineVerticalLine(canvas, offsetX, lineLength);
     }
-    if (bingoList.contains('c5')) {
+    if (bingoList.contains(Strings.c5Str)) {
       offsetX = cellWidth * 4.5;
       drawLineVerticalLine(canvas, offsetX, lineLength);
     }
 
-    if (bingoList.contains('r1')) {
+    if (bingoList.contains(Strings.r1Str)) {
       offsetY = cellHeight / 2;
       drawHorizontalLine(canvas, offsetY, lineLength);
     }
-    if (bingoList.contains('r2')) {
+    if (bingoList.contains(Strings.r2Str)) {
       offsetY = cellHeight * 1.5;
       drawHorizontalLine(canvas, offsetY, lineLength);
     }
-    if (bingoList.contains('r3')) {
+    if (bingoList.contains(Strings.r3Str)) {
       offsetY = cellHeight * 2.5;
       drawHorizontalLine(canvas, offsetY, lineLength);
     }
-    if (bingoList.contains('r4')) {
+    if (bingoList.contains(Strings.r4Str)) {
       offsetY = cellHeight * 3.5;
       drawHorizontalLine(canvas, offsetY, lineLength);
     }
-    if (bingoList.contains('r5')) {
+    if (bingoList.contains(Strings.r5Str)) {
       offsetY = cellHeight * 4.5;
       drawHorizontalLine(canvas, offsetY, lineLength);
     }
-    if (bingoList.contains('dRight')) {
+    if (bingoList.contains(Strings.dRightStr)) {
       canvas.drawLine(
         const Offset(0, 0),
         Offset(lineLength, lineLength),
         _paint,
       );
     }
-    if (bingoList.contains('dLeft')) {
+    if (bingoList.contains(Strings.dLeftStr)) {
       canvas.drawLine(
         Offset(0, lineLength),
         Offset(lineLength, 0),

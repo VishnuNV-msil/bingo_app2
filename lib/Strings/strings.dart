@@ -3,6 +3,18 @@ import 'package:flutter/material.dart';
 class Strings{
   static const String appBarTitle ="BINGO GAME" ;
   static const String title ="BINGO" ;
+  static const String r1Str = 'r1';
+  static const String r2Str = 'r2';
+  static const String r3Str = 'r3';
+  static const String r4Str = 'r4';
+  static const String r5Str = 'r5';
+  static const String c1Str = 'c1';
+  static const String c2Str = 'c2';
+  static const String c3Str = 'c3';
+  static const String c4Str = 'c4';
+  static const String c5Str = 'c5';
+  static const String dLeftStr = 'dLeft';
+  static const String dRightStr = 'dRight';
   static const List dLeft = [4, 8, 12, 16, 20];
   static const List dRight = [0, 6, 12, 18, 24];
   static const List c1 = [0, 5, 10, 15, 20];
