@@ -47,10 +47,10 @@ class _BingoTableState extends State<BingoTable> {
   Widget build(BuildContext context) {
     final BingoBloc bingoBloc = BlocProvider.of<BingoBloc>(context);
     return Padding(
-      padding: const EdgeInsets.only(top: 50, bottom: 200, left: 20, right: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           const Center(
               child: Text(
@@ -67,8 +67,8 @@ class _BingoTableState extends State<BingoTable> {
             builder: (context, state) {
               return Container(
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.width - 40,
-                width: MediaQuery.of(context).size.width - 10,
+                height: MediaQuery.of(context).size.width-20,
+                width: MediaQuery.of(context).size.width-20,
                 decoration: BoxDecoration(
                   color: Colors.pink,
                   borderRadius: BorderRadius.circular(20),
