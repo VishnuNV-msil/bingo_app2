@@ -47,7 +47,7 @@ class _BingoTableState extends State<BingoTable> {
   Widget build(BuildContext context) {
     final BingoBloc bingoBloc = BlocProvider.of<BingoBloc>(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

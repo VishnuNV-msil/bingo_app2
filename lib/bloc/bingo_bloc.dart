@@ -53,59 +53,42 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
   void checkBingo() {
     if (Set.of(crossedList).containsAll(Strings.r1) && !bingoList.contains('r1')) {
       bingoList.add('r1');
-      drawline(Strings.r1);
     }
     if (Set.of(crossedList).containsAll(Strings.r2) && !bingoList.contains('r2')) {
       bingoList.add('r2');
-      drawline(Strings.r2);
     }
     if (Set.of(crossedList).containsAll(Strings.r3) && !bingoList.contains('r3')) {
       bingoList.add('r3');
-      drawline(Strings.r3);
     }
     if (Set.of(crossedList).containsAll(Strings.r4) && !bingoList.contains('r4')) {
       bingoList.add('r4');
-      drawline(Strings.r4);
     }
     if (Set.of(crossedList).containsAll(Strings.r5) && !bingoList.contains('r5')) {
       bingoList.add('r5');
-      drawline(Strings.r5);
     }
     if (Set.of(crossedList).containsAll(Strings.c1) && !bingoList.contains('c1')) {
       bingoList.add('c1');
-      drawline(Strings.c1);
     }
     if (Set.of(crossedList).containsAll(Strings.c2) && !bingoList.contains('c2')) {
       bingoList.add('c2');
-      drawline(Strings.c2);
     }
     if (Set.of(crossedList).containsAll(Strings.c3) && !bingoList.contains('c3')) {
       bingoList.add('c3');
-      drawline(Strings.c3);
     }
     if (Set.of(crossedList).containsAll(Strings.c4) && !bingoList.contains('c4')) {
       bingoList.add('c4');
-      drawline(Strings.c4);
     }
     if (Set.of(crossedList).containsAll(Strings.c5) && !bingoList.contains('c5')) {
       bingoList.add('c5');
-      drawline(Strings.c5);
     }
     if (Set.of(crossedList).containsAll(Strings.dLeft) &&
         !bingoList.contains('dLeft')) {
       bingoList.add('dLeft');
-      drawline(Strings.dLeft);
     }
     if (Set.of(crossedList).containsAll(Strings.dRight) &&
         !bingoList.contains('dRight')) {
       bingoList.add('dRight');
-      drawline(Strings.dRight);
     } else {}
   }
 
-  void drawline(List lineName) {
-    if (bingoList.length > 4) {
-      //print("BINGO == BINGO");
-    }
-  }
 }
