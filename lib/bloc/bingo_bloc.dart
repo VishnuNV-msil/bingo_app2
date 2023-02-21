@@ -2,25 +2,14 @@ import 'bloc_event.dart';
 import 'bloc_state.dart';
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import '../Strings/strings.dart';
 
 class BingoBloc extends Bloc<BingoEvent, BingoState> {
   List userSelectedList = [];
   List numbersList = List.generate(25, (int index) => '');
   int number = 0;
   List crossedList = [];
-  final List dLeft = [4, 8, 12, 16, 20];
-  final List dRight = [0, 6, 12, 18, 24];
-  final List c1 = [0, 5, 10, 15, 20];
-  final List c2 = [1, 6, 11, 16, 21];
-  final List c3 = [2, 7, 12, 17, 22];
-  final List c4 = [3, 8, 13, 18, 23];
-  final List c5 = [4, 9, 14, 19, 24];
-  final List r1 = [0, 1, 2, 3, 4];
-  final List r2 = [5, 6, 7, 8, 9];
-  final List r3 = [10, 11, 12, 13, 14];
-  final List r4 = [15, 16, 17, 18, 19];
-  final List r5 = [20, 21, 22, 23, 24];
-   List bingoList = [];
+  List bingoList = [];
 
   @override
   BingoBloc() : super(BingoInitialState()) {
@@ -62,55 +51,55 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
   }
 
   void checkBingo() {
-    if (Set.of(crossedList).containsAll(r1) && !bingoList.contains('r1')) {
+    if (Set.of(crossedList).containsAll(Strings.r1) && !bingoList.contains('r1')) {
       bingoList.add('r1');
-      drawline(r1);
+      drawline(Strings.r1);
     }
-    if (Set.of(crossedList).containsAll(r2) && !bingoList.contains('r2')) {
+    if (Set.of(crossedList).containsAll(Strings.r2) && !bingoList.contains('r2')) {
       bingoList.add('r2');
-      drawline(r2);
+      drawline(Strings.r2);
     }
-    if (Set.of(crossedList).containsAll(r3) && !bingoList.contains('r3')) {
+    if (Set.of(crossedList).containsAll(Strings.r3) && !bingoList.contains('r3')) {
       bingoList.add('r3');
-      drawline(r3);
+      drawline(Strings.r3);
     }
-    if (Set.of(crossedList).containsAll(r4) && !bingoList.contains('r4')) {
+    if (Set.of(crossedList).containsAll(Strings.r4) && !bingoList.contains('r4')) {
       bingoList.add('r4');
-      drawline(r4);
+      drawline(Strings.r4);
     }
-    if (Set.of(crossedList).containsAll(r5) && !bingoList.contains('r5')) {
+    if (Set.of(crossedList).containsAll(Strings.r5) && !bingoList.contains('r5')) {
       bingoList.add('r5');
-      drawline(r5);
+      drawline(Strings.r5);
     }
-    if (Set.of(crossedList).containsAll(c1) && !bingoList.contains('c1')) {
+    if (Set.of(crossedList).containsAll(Strings.c1) && !bingoList.contains('c1')) {
       bingoList.add('c1');
-      drawline(c1);
+      drawline(Strings.c1);
     }
-    if (Set.of(crossedList).containsAll(c2) && !bingoList.contains('c2')) {
+    if (Set.of(crossedList).containsAll(Strings.c2) && !bingoList.contains('c2')) {
       bingoList.add('c2');
-      drawline(c2);
+      drawline(Strings.c2);
     }
-    if (Set.of(crossedList).containsAll(c3) && !bingoList.contains('c3')) {
+    if (Set.of(crossedList).containsAll(Strings.c3) && !bingoList.contains('c3')) {
       bingoList.add('c3');
-      drawline(c3);
+      drawline(Strings.c3);
     }
-    if (Set.of(crossedList).containsAll(c4) && !bingoList.contains('c4')) {
+    if (Set.of(crossedList).containsAll(Strings.c4) && !bingoList.contains('c4')) {
       bingoList.add('c4');
-      drawline(c4);
+      drawline(Strings.c4);
     }
-    if (Set.of(crossedList).containsAll(c5) && !bingoList.contains('c5')) {
+    if (Set.of(crossedList).containsAll(Strings.c5) && !bingoList.contains('c5')) {
       bingoList.add('c5');
-      drawline(c5);
+      drawline(Strings.c5);
     }
-    if (Set.of(crossedList).containsAll(dLeft) &&
+    if (Set.of(crossedList).containsAll(Strings.dLeft) &&
         !bingoList.contains('dLeft')) {
       bingoList.add('dLeft');
-      drawline(dLeft);
+      drawline(Strings.dLeft);
     }
-    if (Set.of(crossedList).containsAll(dRight) &&
+    if (Set.of(crossedList).containsAll(Strings.dRight) &&
         !bingoList.contains('dRight')) {
       bingoList.add('dRight');
-      drawline(dRight);
+      drawline(Strings.dRight);
     } else {}
   }
 
