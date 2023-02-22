@@ -9,14 +9,9 @@ import 'BoxWidget.dart';
 import '../Helpers/GridLines.dart';
 import '../Helpers/CustomCenter_Widget.dart';
 
-class BingoScreen extends StatefulWidget {
+class BingoScreen extends StatelessWidget {
   const BingoScreen({Key? key}) : super(key: key);
 
-  @override
-  State<BingoScreen> createState() => _BingoScreenState();
-}
-
-class _BingoScreenState extends State<BingoScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
