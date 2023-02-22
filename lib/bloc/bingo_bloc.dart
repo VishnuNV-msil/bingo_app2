@@ -15,6 +15,10 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
   BingoBloc() : super(BingoInitialState()) {
     on<BingoAddNumberEvent>((event, emit) {
       addToUserSelectedList(event.userIndexValue);
+      if (bingoList.length < 12) {
+      } else {
+       add(BingoEndEvent());
+      }
       emit(BingoAddNumberState(numbersList, bingoList));
     });
     on<BingoRefreshEvent>((event, emit) {
@@ -25,11 +29,17 @@ class BingoBloc extends Bloc<BingoEvent, BingoState> {
       crossedList = [];
       emit(BingoRefreshState());
     });
+    on<BingoEndEvent>((event, emit) {
+      emit(BingoEndState(numbersList, bingoList));
+    });
   }
   void addToUserSelectedList(int index) {
     if (number == 25) {
+      if (bingoList.length < 12) {
       numbersList[index] = 'X';
       addToCrossedList(index);
+      } else {
+      }
     } else {
       if (userSelectedList.contains(index)) {
       } else {

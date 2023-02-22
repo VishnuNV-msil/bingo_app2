@@ -11,4 +11,6 @@ class BingoAddNumberEvent extends BingoEvent {
 class BingoRefreshEvent extends BingoEvent {
   BingoRefreshEvent();
 }
-
+class BingoEndEvent extends BingoEvent {
+  BingoEndEvent();
+}

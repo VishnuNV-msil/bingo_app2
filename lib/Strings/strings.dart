@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Strings{
   static const String appBarTitle ="BINGO GAME" ;
   static const String title ="BINGO" ;
+  static const String gameOver ="GAME OVER" ;
   static const String r1Str = 'r1';
   static const String r2Str = 'r2';
   static const String r3Str = 'r3';

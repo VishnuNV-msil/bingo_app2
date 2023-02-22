@@ -7,6 +7,7 @@ import '../Strings/strings.dart';
 import '../bloc/bingo_bloc.dart';
 import 'BoxWidget.dart';
 import '../Helpers/GridLines.dart';
+import '../Helpers/CustomCenter_Widget.dart';
 
 class BingoScreen extends StatefulWidget {
   const BingoScreen({Key? key}) : super(key: key);
@@ -49,69 +50,75 @@ class _BingoTableState extends State<BingoTable> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Center(
-              child: Text(
-            Strings.title,
-            style: TextStyle(
-              letterSpacing: 3,
-              height: 3,
-              fontWeight: FontWeight.bold,
-              color: Colors.pink,
-              fontSize: 32,
-            ),
-          )),
+          customCenter(Strings.title, Colors.pink),
           BlocBuilder<BingoBloc, BingoState>(
             builder: (context, state) {
-              return Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.width-30,
-                width: MediaQuery.of(context).size.width-30,
-                decoration: BoxDecoration(
-                  color: Colors.pink,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: CustomPaint(
-                      foregroundPainter: GridLines(
-                          Paint()
-                            ..color = Colors.black
-                            ..strokeWidth = 6.0,
-                          state is BingoAddNumberState
+              String str;
+              if (state is BingoEndState) {
+                str = Strings.gameOver;
+              }  else {
+                str = '';
+              }
+              return Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: MediaQuery.of(context).size.width - 30,
+                    width: MediaQuery.of(context).size.width - 30,
+                    decoration: BoxDecoration(
+                      color: Colors.pink,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(15),
+                      child: CustomPaint(
+                        foregroundPainter: GridLines(
+                            Paint()
+                              ..color = Colors.black
+                              ..strokeWidth = 6.0,
+                            state is BingoAddNumberState
+                              ? state.bingoList
+                              : state is BingoEndState
                               ? state.bingoList
                               : []),
-                      child: GridView.builder(
-                          itemCount: 25,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 5,),
-                          itemBuilder: (BuildContext context, int index) {
-                            return ButtonWidget(
-                              buttonTapped: () {
-                                bingoBloc.add(BingoAddNumberEvent(index));
-                              },
-                              buttonText: state is BingoAddNumberState
-                                  ? state.userIndexList[index].toString()
-                                  : '',
-                              textColor: Colors.black,
-                              index: index,
-                            );
-                          }),
+                        child: GridView.builder(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 25,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 5,
+                            ),
+                            itemBuilder: (BuildContext context, int index) {
+                              return ButtonWidget(
+                                buttonTapped: () {
+                                  bingoBloc.add(BingoAddNumberEvent(index));
+                                },
+                                buttonText: state is BingoAddNumberState
+                                    ? state.userIndexList[index].toString()
+                                    : state is BingoEndState
+                                    ? state.userIndexList[index].toString()
+                                    : '',
+                                textColor: Colors.black,
+                                index: index,
+                              );
+                            }),
+                      ),
                     ),
                   ),
+                  customCenter(str, Colors.black),
+                ],
               );
             },
           ),
           FloatingActionButton(
-              heroTag: 'btn2',
-              child: const Icon(Icons.refresh),
-              onPressed: () {
-                bingoBloc.add(BingoRefreshEvent());
-              },
-            ),
+            heroTag: 'btn2',
+            child: const Icon(Icons.refresh),
+            onPressed: () {
+              bingoBloc.add(BingoRefreshEvent());
+            },
+          ),
         ],
       ),
     );
