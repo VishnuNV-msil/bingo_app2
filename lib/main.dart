@@ -1,4 +1,4 @@
-import 'package:bingo_app/screen/BingoScreen.dart';
+import 'package:bingo_app/screen/bingo_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

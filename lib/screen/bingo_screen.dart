@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../Strings/strings.dart';
 import '../bloc/bingo_bloc.dart';
-import 'BoxWidget.dart';
-import '../Helpers/GridLines.dart';
-import '../Helpers/CustomCenter_Widget.dart';
+import 'box_widget.dart';
+import '../Helpers/gridlines.dart';
+import '../Helpers/custom_center_widget.dart';
 
 class BingoScreen extends StatelessWidget {
   const BingoScreen({Key? key}) : super(key: key);
